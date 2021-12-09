@@ -142,15 +142,9 @@ interface PriceDataInterface {
     };
   };
 }
-interface RouteParams {
-  coinId: string;
-}
-interface RouteState {
-  name: string;
-}
 const _ = () => {
-  const { coinId } = useParams<RouteParams>();
-  const { state } = useLocation<RouteState>();
+  const { coinId }: any = useParams();
+  const { state } = useLocation();
   const priceMatch = useMatch("/:coinId/price");
   const chartMatch = useMatch("/:coinId/chart");
   console.log(chartMatch || priceMatch);
